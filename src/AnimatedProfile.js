@@ -38,10 +38,12 @@ const AnimatedProfile = ({ onViewPortfolio }) => {
                 }}
             >
                 <motion.h1 className="text-3xl font-bold" variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>
-                    John Doe
+                    Rojal Treesa Joy
                 </motion.h1>
                 <motion.p className="text-gray-300 mt-2" variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>
-                    A passionate software developer with expertise in web development, AI, and UI/UX.
+                🚀 AI, Game Dev & Frontend Innovator 🎮💡
+
+I craft immersive games, build AI-powered systems, and design dynamic frontends! From FPS shooters to smart security detection and interactive AR, I blend tech and creativity to bring ideas to life. Let’s build something amazing! 🔥
                 </motion.p>
             </motion.div>
 
