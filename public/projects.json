@@ -1,18 +1,18 @@
 [
   {
     "id": 1,
-    "Title": "Project One",
-    "Description": "This is a sample project.",
+    "Title": "Petite Pets Paradise",
+    "Description": "A React website that lists pet-friendly hotels in a particular area",
     "images": "https://via.placeholder.com/600x400",
-    "Links": "https://example.com",
-    "SourceCode": "https://github.com/example/project-one"
+    "Links": "https://github.com/RojalJoy/Petite-Pets_Paradise",
+    "SourceCode": "https://github.com/RojalJoy/Petite-Pets_Paradise"
   },
   {
     "id": 2,
-    "Title": "Project Two",
-    "Description": "Another sample project.",
+    "Title": "AR Mock Interview System",
+    "Description": "An AR powered website that allows users to perform a mock interview with an AR model.Based on the reusme uploaded by the user the webiste will list the job roles that the user can apply to .",
     "images": "https://via.placeholder.com/600x400",
-    "Links": "https://example.com",
-    "SourceCode": "https://github.com/example/project-two"
+    "Links": "https://test-project-chi-ten.vercel.app/",
+    "SourceCode": "https://www.plugxr.com/augmented-reality/wp-content/uploads/2022/09/AR-art.jpg"
   }
 ]
