@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
 const ProjectList = () => {
     const [projects, setProjects] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:3000/api/projects")
-            .then(response => setProjects(response.data))
+        fetch("/projects.json")  // ✅ Fetching from public folder
+            .then(response => response.json())
+            .then(data => setProjects(data))
             .catch(error => console.error("Error fetching projects:", error));
     }, []);
 
@@ -18,7 +18,7 @@ const ProjectList = () => {
                 {projects.map(project => (
                     <Link 
                         key={project.id} 
-                        to={`/project/${project.id}`}  // ✅ Ensure this matches App.js
+                        to={`/project/${project.id}`}
                         className="bg-gray-800 p-4 rounded-lg shadow-lg hover:bg-gray-700 transition"
                     >
                         <h2 className="text-xl font-semibold">{project.Title}</h2>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import { motion } from "framer-motion";
 
 const ProjectDetails = () => {
@@ -10,14 +9,20 @@ const ProjectDetails = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        axios.get(`http://localhost:3000/api/projects/${id}`)
-            .then(response => {
-                setProject(response.data);
+        fetch("/projects.json")  // ✅ Fetching from static JSON
+            .then(response => response.json())
+            .then(data => {
+                const foundProject = data.find(p => p.id === parseInt(id));
+                if (foundProject) {
+                    setProject(foundProject);
+                } else {
+                    setError("Project not found.");
+                }
                 setLoading(false);
             })
             .catch(error => {
-                console.error('Error fetching project details:', error);
-                setError('Failed to load project details.');
+                console.error("Error fetching project details:", error);
+                setError("Failed to load project details.");
                 setLoading(false);
             });
     }, [id]);
@@ -32,7 +37,6 @@ const ProjectDetails = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
         >
-            {/* Project Title */}
             <motion.h1 
                 className="text-4xl font-bold mb-6 text-center"
                 initial={{ opacity: 0, y: -20 }}
@@ -42,7 +46,6 @@ const ProjectDetails = () => {
                 {project.Title}
             </motion.h1>
 
-            {/* Project Image */}
             {project.images ? (
                 <img 
                     src={project.images} 
@@ -57,7 +60,6 @@ const ProjectDetails = () => {
                 />
             )}
 
-            {/* Project Description */}
             <motion.p 
                 className="text-gray-300 text-lg text-center max-w-2xl"
                 initial={{ opacity: 0, y: 20 }}
@@ -67,7 +69,6 @@ const ProjectDetails = () => {
                 {project.Description}
             </motion.p>
 
-            {/* Project Links */}
             <div className="mt-6 flex gap-4">
                 {project.Links && (
                     <a 
